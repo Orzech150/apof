@@ -8,7 +8,7 @@ class Index(TemplateView):
     """
     View for main page.
     """
-    template_name = 'apof/index.html'
+    template_name = 'portal/index.html'
 
 
 class LoginView(View):
@@ -16,13 +16,14 @@ class LoginView(View):
     View for logging in to our app.
     """
     form_class = AuthenticationForm
-    template_name = 'apof/login.html'
+    template_name = 'portal/login.html'
 
-    def get(self, request):
+    def get(self, request, form=None):
         """
         Displays clear AuthenticationForm on page.
         """
-        form = self.form_class()
+        if form is None:
+            form = self.form_class()
 
         return render(request, self.template_name, {'form': form})
 
@@ -34,4 +35,4 @@ class LoginView(View):
         if form.is_valid():
             login(request, form.get_user())
             return redirect('index')
-        return render(request, self.template_name, {'form': form})
+        return self.get(request, form)

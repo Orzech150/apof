@@ -17,7 +17,7 @@ from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 
-from apof import views
+from portal import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),

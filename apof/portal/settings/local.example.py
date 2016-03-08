@@ -1,4 +1,4 @@
-from apof.settings.common import *
+from portal.settings.common import *
 
 DEBUG = True
 
