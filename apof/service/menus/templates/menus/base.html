@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    </head>
+    <body background="http://rapp.pl/images/Front_End/Krak%C3%B3w/pizza.jpg">
+        <nav>
+            <div class="nav-wrapper teal lighten-1 ">
+                <a href="/" class="brand-logo">A.P.O.F.</a>
+                <ul id="nav-mobile " class="right hide-on-med-and-down ">
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'logout' %}">Wyloguj się</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Zaloguj się</a></li>
+                    {% endif %}
+                    <li><a href="">Top 10</a></li>
+                    <li><a href="">Special oferss</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    </body>
+</html>
